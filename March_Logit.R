@@ -136,20 +136,4 @@ March2Test = March2Test %>%
 
 table(March2Test$Outcome, March2Test$March2Predicted) / nrow(March2Test)
 
-# If you need to save the results, use dplyr
-HeartResults0.15 = HeartTest %>% 
-  group_by(HeartDisease,HeartDiseasePredicted) %>% 
-  summarise(Patients = n()) %>% 
-  ungroup() %>% 
-  mutate(Percentage = Patients/sum(Patients))
-
-# View Results
-HeartResults0.15
-
-#####
-
-install.packages("effects")
-library(effects)
-
-plot(allEffects(March2Logit))
 
